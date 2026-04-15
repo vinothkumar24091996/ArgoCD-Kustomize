@@ -44,14 +44,14 @@ jobs:
       - name: Update values.yaml
         run: |
           IMAGE_TAG="v${{ github.run_number }}"
-          sed -i "s|^\([[:space:]]*repository:\).*|\1 ${{ secrets.ECR_REPOSITORY }}|g" helm/grade-submission/values.yaml
-          sed -i "s|^\([[:space:]]*tag:\).*|\1 ${IMAGE_TAG}|g" helm/grade-submission/values.yaml
+          sed -i "s|^\([[:space:]]*repository:\).*|\1 ${{ secrets.ECR_REPOSITORY }}|g" kustomize/base/kustomization.yaml
+          sed -i "s|^\([[:space:]]*tag:\).*|\1 ${IMAGE_TAG}|g" kustomize/base/kustomization.yaml
           cat helm/grade-submission/values.yaml
           
       - name: Commit and push changes
         run: |
           git config --local user.email "${{ secrets.EMAIL_ADDRESS }}"
           git config --local user.name "${{ secrets.USER_NAME }}"
-          git add helm/grade-submission/values.yaml
+          git add kustomize/base/kustomization.yaml
           git commit -m "Update image tag to v${{ github.run_number }} [skip ci]" || exit 0
           git push origin main
