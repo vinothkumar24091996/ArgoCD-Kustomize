@@ -8,4 +8,4 @@ resources:
 images:
   - name: 254185428277.dkr.ecr.us-east-1.amazonaws.com/vinoth-kustomize
     newName: 254185428277.dkr.ecr.us-east-1.amazonaws.com/vinoth-kustomize
-    newTag: v16
+    newTag: v17
