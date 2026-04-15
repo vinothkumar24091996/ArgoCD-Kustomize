@@ -1,34 +1,12 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: grade-submission-dev
-  namespace: argocd
-spec:
-  project: default
-  source:
-    repoURL: https://github.com/vinothkumar24091996/argocd-kubernetes-gitops-tutorial.git 
-    targetRevision: HEAD
-    path: kustomize/overlays/dev
-  destination:
-    server: https://kubernetes.default.svc
-    namespace: grade-demo
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-    - CreateNamespace=true
-
-
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
   name: argocd-kustomize-app
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: GITHUB_URL
+    repoURL: https://github.com/vinothkumar24091996/ArgoCD-Kustomize.git
     targetRevision: HEAD
     path: kustomize/base
   destination:
