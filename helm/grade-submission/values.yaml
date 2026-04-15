@@ -1,0 +1,19 @@
+replicaCount: 1
+
+image:
+  repository: 254185428277.dkr.ecr.us-east-1.amazonaws.com/vinoth-helm
+  tag: v9
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 3000
+  targetPort: 3000
+
+resources:
+  limits:
+    cpu: 600m
+    memory: 256Mi
+  requests:
+    cpu: 250m
+    memory: 128Mi
