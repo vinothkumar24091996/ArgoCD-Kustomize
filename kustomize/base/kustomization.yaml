@@ -4,3 +4,8 @@ kind: Kustomization
 resources:
   - grade-submission-api-deployment.yaml
   - grade-submission-api-service.yaml
+
+images:
+  - name: 254185428277.dkr.ecr.us-east-1.amazonaws.com/vinoth-helm
+    newName: 254185428277.dkr.ecr.us-east-1.amazonaws.com/vinoth-helm
+    newTag: latest
