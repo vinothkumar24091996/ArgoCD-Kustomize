@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: grade-submission-api
-  namespace: kustomize
+  namespace: argocd-kustomize-app
   labels:
     app: grade-submission
 spec:
